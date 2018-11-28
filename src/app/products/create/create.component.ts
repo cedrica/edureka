@@ -1,8 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormGroup, FormBuilder} from '@angular/forms';
-import {ProductModel} from './product.model';
 
-@Component({
+@Component ({
   selector: 'app-form"',
   templateUrl: './create.component.html'
 })
@@ -10,7 +9,6 @@ import {ProductModel} from './product.model';
 
 export class CreateProductComponent implements OnInit {
   productForm: FormGroup;
-  productModel = new ProductModel('pommes','sss', 22,'img');
 
   constructor(private fb: FormBuilder) {
 

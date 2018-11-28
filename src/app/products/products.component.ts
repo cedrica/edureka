@@ -15,7 +15,7 @@ export class ProductComponent implements OnInit {
   ImageWidth = 50;
   filterProduct;
   title = 'Products list';
-  // is runned before ngOnInit
+  // is run before ngOnInit
   constructor(private __productService: ProductService) {
     this.__productService.getProducts()
       .subscribe(products => this.products = products,

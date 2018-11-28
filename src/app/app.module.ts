@@ -9,6 +9,7 @@ import {HomeComponent} from './home/home.component';
 import {RouterModule} from '@angular/router';
 import {ProductModule} from './products/product.module';
 import {HttpClientModule} from '@angular/common/http';
+import { FormComponent } from './form/form.component';
 
 @NgModule({
   imports: [
@@ -22,6 +23,7 @@ import {HttpClientModule} from '@angular/common/http';
     RouterModule.forRoot([
       {path: 'orders', component: OrderComponent},
       {path: 'home', component: HomeComponent},
+      {path: 'form', component: FormComponent},
       {path: '', redirectTo: 'home', pathMatch: 'full'},
       {path: '**', component: NotfoundComponent}// anything else
     ])
@@ -31,7 +33,8 @@ import {HttpClientModule} from '@angular/common/http';
     AppComponent,
     OrderComponent,
     NotfoundComponent,
-    HomeComponent
+    HomeComponent,
+    FormComponent
 
   ],
   // bootstrap muss just be de

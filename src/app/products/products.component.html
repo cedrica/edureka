@@ -22,8 +22,7 @@
           <thead>
             <th><button class="btn btn-success"
             (click)="toggleImage()">{{showImage? "Hide Image":"Show Image"}}</button>
-              <button class="btn btn-success"
-                      (click)="onCreateProduct()">create product</button>
+              <a class="btn btn-success" [routerLink]="['/form']">create product</a>
             </th>
             <th>Name</th>
             <th>Code</th>
@@ -34,8 +33,10 @@
           <tbody>
             <tr *ngFor="let product of products|productFilter:filterProduct">
               <td><img [src]="product.imageUrl" [style.width.px]="ImageWidth" *ngIf="showImage"/></td>
-              <td><a [routerLink]="['/products', product.productId]"
-              [queryParams]="{name:product.productName,description:product.description,imageUrl:product.imageUrl}">{{product.productName|uppercase}}</a></td>
+              <!-- Use this if you want to display query params in url
+                <td><a [routerLink]="['/products', product.productId]"
+              [queryParams]="{name:product.productName,description:product.description,imageUrl:product.imageUrl}">{{product.productName|uppercase}}</a></td>-->
+              <td><a [routerLink]="['/products', product.productId]">{{product.productName|uppercase}}</a></td>
               <td>{{product.productCode}}</td>
               <td>{{product.releaseDate}}</td>
               <td>{{product.price|currency:"EUR"}}</td>

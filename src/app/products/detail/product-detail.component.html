@@ -1,12 +1,15 @@
 <div class="panel panel-danger">
   <div class="panel panel-head"><h1>detail {{title}}</h1></div>
+
   <div class="panel panel-body">
-    <img [src]="img" />
+    <h2>{{details[0].productName}}</h2>
+    <img [src]="details[0].imageUrl" />
   </div>
 
   <div class="panel panel-footer">
-    {{description}}
+    {{details[0].description}}
+    <button class="btn btn-success" (click)="onBack()">Come Back</button>
   </div>
-  <button class="btn btn-success" (click)="onBack()">Come Back</button>
+
 </div>
 
