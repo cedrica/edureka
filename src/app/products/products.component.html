@@ -2,7 +2,7 @@
 <div class="container">
   <div class="panel panel-primary">
     <div class="panel panel-header">
-      <h1>Products list</h1>
+      <h3>{{title}}</h3>
     </div>
     <div class="panel panel-body">
       <div class="row">
@@ -15,13 +15,15 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-md-6"></div>
+        <div class="col-md-6">{{errorMessages}}</div>
       </div>
       <div class="table-responsive">
         <table class="table" *ngIf="products && products.length">
           <thead>
             <th><button class="btn btn-success"
             (click)="toggleImage()">{{showImage? "Hide Image":"Show Image"}}</button>
+              <button class="btn btn-success"
+                      (click)="onCreateProduct()">create product</button>
             </th>
             <th>Name</th>
             <th>Code</th>
@@ -32,11 +34,13 @@
           <tbody>
             <tr *ngFor="let product of products|productFilter:filterProduct">
               <td><img [src]="product.imageUrl" [style.width.px]="ImageWidth" *ngIf="showImage"/></td>
-              <td>{{product.productName|uppercase}}</td>
+              <td><a [routerLink]="['/products', product.productId]"
+              [queryParams]="{name:product.productName,description:product.description,imageUrl:product.imageUrl}">{{product.productName|uppercase}}</a></td>
               <td>{{product.productCode}}</td>
               <td>{{product.releaseDate}}</td>
               <td>{{product.price|currency:"EUR"}}</td>
-              <td>{{product.starRating}}</td>
+              <td><app-star [rating]="product.starRating"
+                            (ratingClicked)="onRatingClicked($event)"> </app-star></td>
             </tr>
           </tbody>
         </table>

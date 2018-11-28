@@ -1,0 +1,3 @@
+.crop{
+  overflow: hidden; /*after the width the containt will not go outside the width */
+}
